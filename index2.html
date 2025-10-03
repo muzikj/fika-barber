@@ -103,11 +103,11 @@
     .owner-photo {
       width: 180px;
       height: 180px;
-      background-color: #444;
+      background-color: white;
       border: 3px solid #8b5e3c;
-      border-radius: 100px;
+      border-radius: 100px; 
       margin: 1rem 0;
-      background-image: url('terka.jpg');
+      background-image: url('logo-bw.png');
       background-size: cover;
       background-position: center;
     }
@@ -116,16 +116,50 @@
       margin-top: 1rem;
     }
 
-    .price-item {
+<!--    .price-item {
       display: flex;
       justify-content: space-between;
       border-bottom: 1px solid #555;
       padding: 0.5rem 0;
     }
+-->
+
+.price-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    border-bottom: 1px solid #555;
+    padding: 0.5rem 0;
+    align-items: center;
+  }
+<!--
+  .price-item .en {
+    text-align: justify;
+  }
+-->
+
+.price-item > :last-child {
+  justify-self: end;   /* pushes content of last column to the right */
+}
 
     a.button {
       display: inline-block;
       margin-top: 1rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: #d1a86f;
+      color: #1e1e1e;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    a.buttonright {
+      display: block;      /* Make the link block-level */
+      margin-left: auto;   /* Push it to the right */
+      margin-right: 0;     /* Optional */
+
+      margin-top: 1rem;
+      margin-bottom: 1rem;
       padding: 0.8rem 1.5rem;
       background-color: #d1a86f;
       color: #1e1e1e;
@@ -137,6 +171,12 @@
     .map-container {
       margin-top: 1rem;
     }
+
+.container {
+  text-align: right;
+      max-width: 900px;
+      margin: auto;
+}
 
 .gallery-grid {
   display: grid;
@@ -199,7 +239,11 @@
 <body>
 
   <header>
-    <img id="logo" src="logo.png" alt="Fika Barber Logo" />
+<!--    <img id="logo" src="logo-bw.png" alt="Fika Barber Logo" /> -->
+
+<div class="container">
+     <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a>
+</div>
     <h1>Fika Barber</h1>
     <nav>
       <a href="#about">O nás / About</a>
@@ -221,13 +265,13 @@
   <div class="owner-photo"></div>
   <p class="cs">
     Fika Barber je víc než jen barber shop – je to klidné místo, kde se staráme o váš vzhled i pohodu. 
-    Majitelka a hlavní barberka má více než 12 let zkušeností v oboru. Díky svému empatickému přístupu 
-    vytváří přátelské prostředí, kde se každý cítí vítaný – bez ohledu na styl nebo životní příběh.
+    Majitelka a hlavní barberka má více než 18 let zkušeností v oboru. Díky svému empatickému přístupu 
+    vytváří přátelské prostředí, kde se každý cítí vítaný.
   </p>
   <p class="en">
     Fika Barber is more than just a barbershop – it's a calm space where we care about your look and your comfort. 
-    The owner and lead barber is a woman with over 12 years of experience. Her empathetic approach and attention to 
-    detail create a warm, welcoming atmosphere for every client – no matter their style or story.
+    The owner and lead barber is a woman with over 18 years of experience. Her empathetic approach and attention to 
+    detail create a warm, welcoming atmosphere for every client.
   </p>
 </section>
 
@@ -235,12 +279,21 @@
       <h2 class="cs">Ceník</h2>
       <h2 class="en">Price List</h2>
       <div class="price-list">
-        <div class="price-item"><span class="cs">Klasický střih</span><span class="en">Classic Cut</span><span>600 Kč</span></div>
-        <div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard Trim</span><span>350 Kč</span></div>
-        <div class="price-item"><span class="cs">Holení horkým ručníkem</span><span class="en">Hot Towel Shave</span><span>450 Kč</span></div>
-        <div class="price-item"><span class="cs">Kompletní balíček</span><span class="en">Full Package</span><span>950 Kč</span></div>
+	<div class="price-item"><span class="cs">Střih vlasů</span><span class="en">Haircut</span><span>30 minut</span><span>700 Kč</span></div>
+	<div class="price-item"><span class="cs">Střih vlasů + úprava vousů</span><span class="en">Haircut + beard trim</span><span>60 minut</span><span>1150 Kč</span></div>
+	<div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard trim</span><span>30 minut</span><span>550 Kč</span></div>
+	<div class="price-item"><span class="cs">Střih vlasů strojkem</span><span class="en">Buzz cut</span><span>30 minut</span><span>450 Kč</span></div>
+	<div class="price-item"><span class="cs">Střih polodlouhých vlasů</span><span class="en">Medium lenght haircut</span><span>30 minut</span><span>750 Kč</span></div>
+	<div class="price-item"><span class="cs">Střih dlouhých vlasů</span><span class="en">Long haircut</span><span>45 minut</span><span>800 Kč</span></div>
+	<div class="price-item"><span class="cs">Kompletní balíček</span><span class="en">Full package</span><span>90 minut</span><span>1650 Kč</span></div>
+	<div class="price-item"><span class="cs">Holení vousů/holení vlasů</span><span class="en">Beard shaving/head shaving</span><span>30 minut</span><span>550 Kč</span></div>
+	<div class="price-item"><span class="cs">Dětský střih 6-9 let</span><span class="en">Kids haircut 6-9 years old</span><span>30 minut</span><span>550 Kč</span></div>
+	<div class="price-item"><span class="cs">Dětský střih 1-5 let</span><span class="en">Kids haircut 1-5 years old</span><span>30 minut</span><span>450 Kč</span></div>
+	<div class="price-item"><span class="cs">Barvení vousů</span><span class="en">Beard coloring</span><span>15 minut</span><span>400 Kč</span></div>
+	<div class="price-item"><span class="cs">Barvení vlasů (cena od, dle spotřeby materiálu)</span><span class="en">Hair coloring (price from, depending on material consumption) </span><span>30 minut</span><span>700+ Kč</span></div>
+	<div class="price-item"><span class="cs">Vosk</span><span class="en">Wax</span><span>10 minut</span><span>100 Kč</span></div>
       </div>
-      <a class="button" href="https://tereza-vlkova.snippet.myfox.cz/">📅 Rezervace / Book Now</a>
+<!--      <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a> -->
     </section>
 
 <section id="gallery">
@@ -260,6 +313,7 @@
       <p><strong>📞 Telefon:</strong> +420 737 862 982</p>
       <p><strong>📧 Email:</strong> <a href="mailto:vlkova.tera@gmail.com" style="color:#d1a86f;">vlkova.tera@gmail.com</a></p>
       <p><strong>🌐 Web:</strong> <a href="http://www.fika-barber.cz" style="color:#d1a86f;">www.fika-barber.cz</a></p>
+      <p><strong>📷 Instagram:</strong> <a href="https://www.instagram.com/fika_barber/" style="color:#d1a86f;">fika_barber</a></p>
 
       <div class="map-container">
         <iframe 
