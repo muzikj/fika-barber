@@ -231,9 +231,80 @@
         align-items: flex-start;
       }
     }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border: 4px solid var(--accent-color);
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--accent-color);
+}
+
+/* Šipky */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.next { right: 20px; }
+.prev { left: 20px; }
+
+.prev:hover, .next:hover {
+  color: var(--accent-color);
+}
   </style>
 
   <script>
+
+function openLightbox(img) {
+  const lightbox = document.getElementById("lightbox");
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightbox.style.display = "block";
+  lightboxImg.src = img.src;
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
     function switchLang(lang) {
       const cs = document.querySelectorAll('.cs');
       const en = document.querySelectorAll('.en');
@@ -242,6 +313,41 @@
     }
     window.onload = () => switchLang('cs');
   </script>
+
+<script>
+  // seznam cest k obrázkům
+  const images = [
+    "photos/IMG_6879.jpeg",
+    "photos/IMG_7040.jpeg",
+    "photos/IMG_7050.jpeg",
+    "photos/IMG_7055.jpeg",
+    "photos/IMG_7060.jpeg",
+    "photos/IMG_7062.jpeg"
+  ];
+
+  let currentIndex = 0;
+
+  function openLightbox(index) {
+    currentIndex = index;
+    document.getElementById("lightbox").style.display = "flex";
+    showImage(currentIndex);
+  }
+
+  function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+  }
+
+  function changeSlide(step) {
+    currentIndex = (currentIndex + step + images.length) % images.length;
+    showImage(currentIndex);
+  }
+
+  function showImage(index) {
+    document.getElementById("lightbox-img").src = images[index];
+    document.getElementById("counter").innerText = (index + 1) + " / " + images.length;
+  }
+</script>
+
 </head>
 <body>
 
@@ -307,12 +413,23 @@
   <h2 class="cs">Galerie</h2>
   <h2 class="en">Gallery</h2>
   <div class="gallery-grid">
-    <img src="gallery01.jpg" alt="Gallery Photo 1">
-    <img src="gallery01.jpg" alt="Gallery Photo 2">
-    <img src="gallery01.jpg" alt="Gallery Photo 3">
+    <img src="photos/IMG_6879.jpeg" alt="Gallery Photo 1" loading="lazy" onclick="openLightbox(0)">
+    <img src="photos/IMG_7040.jpeg" alt="Gallery Photo 2" loading="lazy" onclick="openLightbox(1)">
+    <img src="photos/IMG_7050.jpeg" alt="Gallery Photo 3" loading="lazy" onclick="openLightbox(2)">
+    <img src="photos/IMG_7055.jpeg" alt="Gallery Photo 4" loading="lazy" onclick="openLightbox(3)">
+    <img src="photos/IMG_7060.jpeg" alt="Gallery Photo 5" loading="lazy" onclick="openLightbox(4)">
+    <img src="photos/IMG_7062.jpeg" alt="Gallery Photo 6" loading="lazy" onclick="openLightbox(5)">
   </div>
 </section>
 
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox" onclick="if(event.target.id==='lightbox'){closeLightbox()}">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <div id="counter" class="counter"></div>
+  <img class="lightbox-content" id="lightbox-img">
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
     <section id="contact">
       <h2 class="cs">Kontakt</h2>
       <h2 class="en">Contact</h2>
