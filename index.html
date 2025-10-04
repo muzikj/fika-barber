@@ -25,13 +25,19 @@
 
   <title>Fika Barber</title>
   <style>
+    :root {
+      --accent-color: #556b2f;
+      /* Dark olive */
+      --accent-border: #8b5e3c;
+      /* Secondary brownish accent */
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #1e1e1e;
       color: #f2f2f2;
       background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
-      /*      background-image: url('https://images.unsplash.com/photo-1609782071319-e469a6c1b77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'); */
       background-repeat: repeat;
       background-size: cover;
     }
@@ -40,7 +46,7 @@
       background-color: rgba(0, 0, 0, 0.85);
       padding: 1.5rem 1rem;
       text-align: center;
-      border-bottom: 2px solid #8b5e3c;
+      border-bottom: 2px solid var(--accent-border);
     }
 
     #logo {
@@ -60,7 +66,7 @@
     }
 
     nav a {
-      color: #d1a86f;
+      color: var(--accent-color);
       text-decoration: none;
       margin: 0 1rem;
       font-weight: bold;
@@ -85,7 +91,7 @@
     }
 
     .lang-switch button:hover {
-      color: #d1a86f;
+      color: var(--accent-color);
     }
 
     main {
@@ -101,7 +107,7 @@
     }
 
     h2 {
-      color: #d1a86f;
+      color: var(--accent-color);
       margin-bottom: 0.5rem;
     }
 
@@ -113,7 +119,7 @@
       width: 180px;
       height: 180px;
       background-color: white;
-      border: 3px solid #8b5e3c;
+      border: 3px solid var(--accent-border);
       border-radius: 100px;
       margin: 1rem 0;
       background-image: url('logo-bw.png');
@@ -125,37 +131,25 @@
       margin-top: 1rem;
     }
 
-    /* .price-item {
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #555;
-      padding: 0.5rem 0;
-    }
-
-    */
     .price-item {
       display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 2fr 2fr 1fr 1fr;
       border-bottom: 1px solid #555;
       padding: 0.5rem 0;
       align-items: center;
     }
 
-    /* .price-item .en {
-      text-align: justify;
-    }    */
-
     .price-item> :last-child {
       justify-self: end;
-      /* pushes content of last column to the right */
     }
 
-    a.button {
+    a.button,
+    a.buttonright {
       display: inline-block;
       margin-top: 1rem;
       margin-bottom: 1rem;
       padding: 0.8rem 1.5rem;
-      background-color: #d1a86f;
+      background-color: var(--accent-color);
       color: #1e1e1e;
       text-decoration: none;
       font-weight: bold;
@@ -164,20 +158,8 @@
 
     a.buttonright {
       display: block;
-      /* Make the link block-level */
       margin-left: auto;
-      /* Push it to the right */
       margin-right: 0;
-      /* Optional */
-
-      margin-top: 1rem;
-      margin-bottom: 1rem;
-      padding: 0.8rem 1.5rem;
-      background-color: #d1a86f;
-      color: #1e1e1e;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 5px;
     }
 
     .map-container {
@@ -200,7 +182,7 @@
     .gallery-grid img {
       width: 100%;
       border-radius: 8px;
-      border: 3px solid #8b5e3c;
+      border: 3px solid var(--accent-border);
       object-fit: cover;
       transition: transform 0.3s ease;
     }
@@ -234,6 +216,7 @@
       .price-item {
         flex-direction: column;
         align-items: flex-start;
+        grid-template-columns: 1fr;
       }
     }
 
@@ -249,10 +232,6 @@
       height: 100%;
       overflow: auto;
       background-color: rgba(0, 0, 0, 0.9);
-    }
-
-    .lightbox {
-      display: none;
       justify-content: center;
       align-items: center;
     }
@@ -280,7 +259,6 @@
       color: var(--accent-color);
     }
 
-    /* Šipky */
     .prev,
     .next {
       cursor: pointer;
