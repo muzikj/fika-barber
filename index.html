@@ -26,10 +26,12 @@
   <title>Fika Barber</title>
   <style>
     :root {
-      --accent-color: #556b2f;
       /* Dark olive */
-      --accent-border: #8b5e3c;
+      /*--accent-color: #556b2f; */
+      --accent-color: #648B67;
       /* Secondary brownish accent */
+      /* --accent-border: #8b5e3c; */
+      --accent-border: #648B67;
     }
 
     body {
@@ -328,7 +330,7 @@
 
     function showImage(index) {
       document.getElementById("lightbox-img").src = images[index];
-      document.getElementById("counter").innerText = (index + 1) + " / " + images.length;
+/*      document.getElementById("counter").innerText = (index + 1) + " / " + images.length; */
     }
   </script>
 
@@ -424,7 +426,7 @@
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="if(event.target.id==='lightbox'){closeLightbox()}">
       <span class="close" onclick="closeLightbox()">&times;</span>
-      <div id="counter" class="counter"></div>
+<!--      <div id="counter" class="counter"></div> -->
       <img class="lightbox-content" id="lightbox-img">
       <a class="prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</a>
       <a class="next" onclick="changeSlide(1)" aria-label="Next">&#10095;</a>
