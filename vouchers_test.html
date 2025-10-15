@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Buy Vouchers — Static Stripe Checkout</title>
+  <style>
+    :root{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;color:#111}
+    body{display:flex;align-items:center;justify-content:center;min-height:100vh;margin:0;background:#f7fafc}
+    .card{background:#fff;border-radius:12px;box-shadow:0 6px 20px rgba(16,24,40,.08);padding:28px;width:380px}
+    h1{font-size:20px;margin:0 0 12px}
+    p.lead{margin:0 0 18px;color:#4b5563}
+    .products{display:grid;gap:12px;margin-bottom:18px}
+    .product{display:flex;justify-content:space-between;align-items:center;padding:12px;border:1px solid #eef2f7;border-radius:10px}
+    button.buy{background:#0ea5a4;border:0;color:white;padding:8px 12px;border-radius:8px;cursor:pointer}
+    button.buy:active{transform:translateY(1px)}
+    .small{font-size:13px;color:#6b7280}
+    label{display:block;font-size:13px;margin-bottom:6px;color:#374151}
+    input[type=email]{width:100%;padding:10px;border-radius:8px;border:1px solid #e6eef6}
+    footer{margin-top:14px;font-size:12px;color:#9ca3af}
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>Buy a voucher</h1>
+    <p class="lead">Choose one of three vouchers and pay securely with Stripe Checkout.</p>
+
+    <label for="email">Email (optional — will be prefilled in Checkout)</label>
+    <input id="email" type="email" placeholder="you@example.com" />
+
+    <div class="products">
+      <div class="product">
+        <div>
+          <div style="font-weight:600">Voucher A — 25 €</div>
+          <div class="small">Valid 12 months</div>
+        </div>
+        <button class="buy" data-price-id="price_1SIU430ockdQGzDHUGGf9H8N">Buy</button>
+      </div>
+
+      <div class="product">
+        <div>
+          <div style="font-weight:600">Voucher B — 50 €</div>
+          <div class="small">Valid 18 months</div>
+        </div>
+        <button class="buy" data-price-id="price_xxx_VOUCHER_B">Buy</button>
+      </div>
+
+      <div class="product">
+        <div>
+          <div style="font-weight:600">Voucher C — 100 €</div>
+          <div class="small">Valid 24 months</div>
+        </div>
+        <button class="buy" data-price-id="price_xxx_VOUCHER_C">Buy</button>
+      </div>
+    </div>
+
+    <footer>
+      This is a static page that uses <em>Stripe Checkout</em>. Replace the publishable key and the price IDs below with your own from the Stripe dashboard.
+    </footer>
+  </div>
+
+  <!-- Load Stripe.js -->
+  <script src="https://js.stripe.com/v3/"></script>
+  <script>
+    // === CONFIGURE THESE ===
+    // Replace with your Stripe publishable key (starts with "pk_")
+    const STRIPE_PUBLISHABLE_KEY = 'pk_test_XXXXXXXXXXXXXXXXXXXXXXXX';
+
+    // Replace default success / cancel URLs. They should be absolute URLs in production.
+    const SUCCESS_URL = window.location.origin + '/success.html';
+    const CANCEL_URL = window.location.origin + '/cancel.html';
+    // =======================
+
+    if (!STRIPE_PUBLISHABLE_KEY || STRIPE_PUBLISHABLE_KEY.includes('pk_test_XXXXXXXXXXXXXXXX')) {
+      console.warn('Replace STRIPE_PUBLISHABLE_KEY with your publishable key from Stripe Dashboard.\nFor quick testing use a Stripe test key (pk_test_...) and the test card 4242 4242 4242 4242.');
+    }
+
+    const stripe = Stripe(STRIPE_PUBLISHABLE_KEY);
+
+    document.querySelectorAll('button.buy').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        const priceId = btn.dataset.priceId;
+        if (!priceId || priceId.startsWith('price_xxx')) {
+          alert('Replace the data-price-id for this product with a real Price ID from your Stripe Dashboard.');
+          return;
+        }
+
+        // Option A: Client-only redirectToCheckout using Price IDs you created in Stripe Dashboard
+        // This works for single-page static sites. No server required.
+        const email = document.getElementById('email').value || undefined;
+
+        try {
+          const result = await stripe.redirectToCheckout({
+            lineItems: [{ price: priceId, quantity: 1 }],
+            mode: 'payment',
+            successUrl: SUCCESS_URL + '?session_id={CHECKOUT_SESSION_ID}',
+            cancelUrl: CANCEL_URL,
+            // optional: prefill an email so the customer doesn't need to type it again
+            // (Stripe will honour it if provided)
+            prefill: { email }
+          });
+
+          if (result.error) {
+            // Show error to customer
+            alert(result.error.message);
+          }
+        } catch (err) {
+          console.error(err);
+          alert('An error occurred. See console for details.');
+        }
+      });
+    });
+
+    // Optional: If you'd rather create Checkout Sessions on a server (recommended for dynamic pricing,
+    // adding metadata, or verifying purchases), uncomment and implement the server endpoint below, then call it:
+    /*
+    async function createServerCheckout(priceId, email) {
+      const res = await fetch('/create-checkout-session', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ priceId, email })
+      });
+      const data = await res.json();
+      if (data.sessionUrl) window.location = data.sessionUrl;
+      else throw new Error('No session URL returned');
+    }
+    */
+  </script>
+</body>
+</html>
