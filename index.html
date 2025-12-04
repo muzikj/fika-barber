@@ -3,7 +3,6 @@
 
 <head>
 
-  <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6M0YTYN8HV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -19,10 +18,9 @@
   <meta name="description"
     content="Fika Barber – moderní barber shop v Praze. Profesionální střihy, úprava vousů a příjemná atmosféra.">
   <meta property="og:title" content="Fika Barber Praha">
-  <meta property="og:description" content="Více než 18 let zkušeností. Rezervujte si svůj termín online.">
-  <meta property="og:image" content="https://fika-barber.cz/photos/IMG_7050.jpeg">
+  <meta property="og:description" content="Více než 12 let zkušeností. Rezervujte si svůj termín online.">
+  <meta property="og:image" content="logo.png">
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://fika-barber.cz/">
 
   <title>Fika Barber</title>
   <style>
@@ -40,7 +38,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #1e1e1e;
       color: #f2f2f2;
-/*      background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); */
+      background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png');
       background-repeat: repeat;
       background-size: cover;
     }
@@ -136,7 +134,8 @@
 
     .price-item {
       display: grid;
-      grid-template-columns: 2fr 2fr 1fr 1fr;
+      /* UPDATED: Added a 5th column for the voucher link */
+      grid-template-columns: 2fr 2fr 1fr 1fr 1.5fr;
       border-bottom: 1px solid #555;
       padding: 0.5rem 0;
       align-items: center;
@@ -146,16 +145,27 @@
       justify-self: end;
     }
 
+    /* NEW STYLE for the voucher link to match the accent color (#648B67) */
+    .voucher-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      white-space: nowrap; /* Prevent wrapping the text */
+    }
+
+    .voucher-link:hover {
+      text-decoration: underline;
+    }
+
     a.button,
     a.buttonright {
       display: inline-block;
       margin-top: 1rem;
       margin-bottom: 1rem;
       padding: 0.8rem 1.5rem;
-/*      background-color: var(--accent-color); */
-      background-color: #630609;
-/*      color: #1e1e1e; */
-      color: white; 
+      background-color: var(--accent-color);
+      color: #1e1e1e;
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
@@ -306,9 +316,9 @@
   <script>
     // seznam cest k obrázkům
     const images = [
-      "photos/IMG_7050.jpeg",
-      "photos/IMG_7040.jpeg",
       "photos/IMG_6879.jpeg",
+      "photos/IMG_7040.jpeg",
+      "photos/IMG_7050.jpeg",
       "photos/IMG_7055.jpeg",
       "photos/IMG_7060.jpeg",
       "photos/IMG_7062.jpeg"
@@ -333,7 +343,7 @@
 
     function showImage(index) {
       document.getElementById("lightbox-img").src = images[index];
-/*      document.getElementById("counter").innerText = (index + 1) + " / " + images.length; */
+      /*      document.getElementById("counter").innerText = (index + 1) + " / " + images.length; */
     }
   </script>
 
@@ -342,8 +352,6 @@
 <body>
 
   <header>
-    <!--    <img id="logo" src="logo-bw.png" alt="Fika Barber Logo" /> -->
-
     <div class="container">
       <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a>
     </div>
@@ -382,57 +390,158 @@
       <h2 class="cs">Ceník</h2>
       <h2 class="en">Price List</h2>
       <div class="price-list">
-        <div class="price-item"><span class="cs">Střih vlasů</span><span class="en">Haircut</span><span>30
-            minut</span><span>700 Kč</span></div>
-        <div class="price-item"><span class="cs">Střih vlasů + úprava vousů</span><span class="en">Haircut + beard
-            trim</span><span>60 minut</span><span>1150 Kč</span></div>
-        <div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard trim</span><span>30
-            minut</span><span>550 Kč</span></div>
-        <div class="price-item"><span class="cs">Střih vlasů strojkem</span><span class="en">Buzz cut</span><span>30
-            minut</span><span>450 Kč</span></div>
-        <div class="price-item"><span class="cs">Střih polodlouhých vlasů</span><span class="en">Medium lenght
-            haircut</span><span>30 minut</span><span>750 Kč</span></div>
-        <div class="price-item"><span class="cs">Střih dlouhých vlasů</span><span class="en">Long haircut</span><span>45
-            minut</span><span>800 Kč</span></div>
-        <div class="price-item"><span class="cs">Kompletní balíček<br/>(střih vlasů, úprava vousů, maska na obličej, odstranění chloupků z uší a nosu voskem)</span><span class="en">Full package<br/>(haircut, beard trim, face mask, ear and nose hair removal with wax)</span><span>90
-            minut</span><span>1650 Kč</span></div>
-        <div class="price-item"><span class="cs">Holení vousů/holení vlasů</span><span class="en">Beard shaving/head
-            shaving</span><span>30 minut</span><span>550 Kč</span></div>
-        <div class="price-item"><span class="cs">Dětský střih 6-9 let</span><span class="en">Kids haircut 6-9 years
-            old</span><span>30 minut</span><span>550 Kč</span></div>
-        <div class="price-item"><span class="cs">Dětský střih 1-5 let</span><span class="en">Kids haircut 1-5 years
-            old</span><span>30 minut</span><span>450 Kč</span></div>
-        <div class="price-item"><span class="cs">Barvení vousů</span><span class="en">Beard coloring</span><span>15
-            minut</span><span>400 Kč</span></div>
-        <div class="price-item"><span class="cs">Barvení vlasů<br/>(cena od, dle spotřeby materiálu)</span><span
-            class="en">Hair coloring<br/>(price from, depending on material consumption)</span><span>30
-            minut</span><span>700+ Kč</span></div>
-        <div class="price-item"><span class="cs">Vosk</span><span class="en">Wax</span><span>10 minut</span><span>100
-            Kč</span></div>
+        <div class="price-item">
+          <span class="cs">Střih vlasů</span>
+          <span class="en">Haircut</span>
+          <span>30 minut</span>
+          <span>700 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Střih vlasů + úprava vousů</span>
+          <span class="en">Haircut + beard trim</span>
+          <span>60 minut</span>
+          <span>1150 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Úprava vousů</span>
+          <span class="en">Beard trim</span>
+          <span>30 minut</span>
+          <span>550 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Střih vlasů strojkem</span>
+          <span class="en">Buzz cut</span>
+          <span>30 minut</span>
+          <span>450 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Střih polodlouhých vlasů</span>
+          <span class="en">Medium lenght haircut</span>
+          <span>30 minut</span>
+          <span>750 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Střih dlouhých vlasů</span>
+          <span class="en">Long haircut</span>
+          <span>45 minut</span>
+          <span>800 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Kompletní balíček</span>
+          <span class="en">Full package</span>
+          <span>90 minut</span>
+          <span>1650 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Holení vousů/holení vlasů</span>
+          <span class="en">Beard shaving/head shaving</span>
+          <span>30 minut</span>
+          <span>550 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Dětský střih 6-9 let</span>
+          <span class="en">Kids haircut 6-9 years old</span>
+          <span>30 minut</span>
+          <span>550 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Dětský střih 1-5 let</span>
+          <span class="en">Kids haircut 1-5 years old</span>
+          <span>30 minut</span>
+          <span>450 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Barvení vousů</span>
+          <span class="en">Beard coloring</span>
+          <span>15 minut</span>
+          <span>400 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Barvení vlasů (cena od, dle spotřeby materiálu)</span>
+          <span
+            class="en">Hair coloring (price from, depending on material consumption) </span>
+          <span>30 minut</span>
+          <span>700+ Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
+        <div class="price-item">
+          <span class="cs">Vosk</span>
+          <span class="en">Wax</span>
+          <span>10 minut</span>
+          <span>100 Kč</span>
+          <a href="#" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
       </div>
-      <!--      <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a> -->
-    </section>
+      </section>
 
     <section id="gallery">
       <h2 class="cs">Galerie</h2>
       <h2 class="en">Gallery</h2>
       <div class="gallery-grid">
-        <img src="photos/IMG_7050.jpeg" alt="Gallery Photo 1" loading="lazy" onclick="openLightbox(0)">
+        <img src="photos/IMG_6879.jpeg" alt="Gallery Photo 1" loading="lazy" onclick="openLightbox(0)">
         <img src="photos/IMG_7040.jpeg" alt="Gallery Photo 2" loading="lazy" onclick="openLightbox(1)">
-        <img src="photos/IMG_6879.jpeg" alt="Gallery Photo 3" loading="lazy" onclick="openLightbox(2)">
+        <img src="photos/IMG_7050.jpeg" alt="Gallery Photo 3" loading="lazy" onclick="openLightbox(2)">
         <img src="photos/IMG_7055.jpeg" alt="Gallery Photo 4" loading="lazy" onclick="openLightbox(3)">
         <img src="photos/IMG_7060.jpeg" alt="Gallery Photo 5" loading="lazy" onclick="openLightbox(4)">
         <img src="photos/IMG_7062.jpeg" alt="Gallery Photo 6" loading="lazy" onclick="openLightbox(5)">
       </div>
     </section>
 
-    <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="if(event.target.id==='lightbox'){closeLightbox()}">
-      <span class="close" onclick="closeLightbox()">&times;</span>
-<!--      <div id="counter" class="counter"></div> -->
+      <span class="close" onclick="closeLightbox()">×</span>
       <img class="lightbox-content" id="lightbox-img">
-      <a class="prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</a>
-      <a class="next" onclick="changeSlide(1)" aria-label="Next">&#10095;</a>
+      <a class="prev" onclick="changeSlide(-1)" aria-label="Previous">❮</a>
+      <a class="next" onclick="changeSlide(1)" aria-label="Next">❯</a>
     </div>
 
     <section id="contact">
@@ -441,8 +550,8 @@
       <p><strong>📍 <span class="cs">Adresa:</span><span class="en">Address:</span></strong> Na Folimance 7, Praha 2,
         12000</p>
       <p><strong>📞 Telefon:</strong> +420 737 862 982</p>
-      <p><strong>📧 Email:</strong> <a href="mailto:fika.barbershop@gmail.com"
-          style="color:#d1a86f;">fika.barbershop@gmail.com</a></p>
+      <p><strong>📧 Email:</strong> <a href="mailto:vlkova.tera@gmail.com"
+          style="color:#d1a86f;">vlkova.tera@gmail.com</a></p>
       <p><strong>🌐 Web:</strong> <a href="http://www.fika-barber.cz" style="color:#d1a86f;">www.fika-barber.cz</a></p>
       <p><strong>📷 Instagram:</strong> <a href="https://www.instagram.com/fika_barber/"
           style="color:#d1a86f;">fika_barber</a></p>
@@ -457,7 +566,7 @@
   </main>
 
   <footer>
-    &copy; 2025 Fika Barber — Praha, Česká republika
+    © 2025 Fika Barber — Praha, Česká republika
   </footer>
 
 </body>
