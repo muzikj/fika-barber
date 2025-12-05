@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="cs">
 
 <head>
@@ -40,7 +40,7 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background-color: #1e1e1e;
       color: #f2f2f2;
-/*      background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); */
+      /*      background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); */
       background-repeat: repeat;
       background-size: cover;
     }
@@ -146,16 +146,29 @@
       justify-self: end;
     }
 
+    /* NEW STYLE for the voucher link to match the accent color (#648B67) */
+    .voucher-link {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 0.9em;
+      white-space: nowrap; /* Prevent wrapping the text */
+    }
+
+    .voucher-link:hover {
+      text-decoration: underline;
+    }
+
     a.button,
     a.buttonright {
       display: inline-block;
       margin-top: 1rem;
       margin-bottom: 1rem;
       padding: 0.8rem 1.5rem;
-/*      background-color: var(--accent-color); */
+      /*      background-color: var(--accent-color); */
       background-color: #630609;
-/*      color: #1e1e1e; */
-      color: white; 
+      /*      color: #1e1e1e; */
+      color: white;
       text-decoration: none;
       font-weight: bold;
       border-radius: 5px;
@@ -333,7 +346,7 @@
 
     function showImage(index) {
       document.getElementById("lightbox-img").src = images[index];
-/*      document.getElementById("counter").innerText = (index + 1) + " / " + images.length; */
+      /*      document.getElementById("counter").innerText = (index + 1) + " / " + images.length; */
     }
   </script>
 
@@ -383,32 +396,86 @@
       <h2 class="en">Price List</h2>
       <div class="price-list">
         <div class="price-item"><span class="cs">Střih vlasů</span><span class="en">Haircut</span><span>30
-            minut</span><span>700 Kč</span></div>
+            minut</span><span>700 Kč</span>
+          <a href="https://buy.stripe.com/dRm8wJghpcXw9VB9CfdQQ08" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+        </div>
         <div class="price-item"><span class="cs">Střih vlasů + úprava vousů</span><span class="en">Haircut + beard
-            trim</span><span>60 minut</span><span>1150 Kč</span></div>
+            trim</span><span>60 minut</span><span>1150 Kč</span>
+          <a href="https://buy.stripe.com/28EeV7e9h3mWaZF4hVdQQ07" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+
+          </div>
         <div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard trim</span><span>30
-            minut</span><span>550 Kč</span></div>
+            minut</span><span>550 Kč</span>
+          <a href="https://buy.stripe.com/9B6eV79T15v41p5cOrdQQ04" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+          </div>
         <div class="price-item"><span class="cs">Střih vlasů strojkem</span><span class="en">Buzz cut</span><span>30
-            minut</span><span>450 Kč</span></div>
+            minut</span><span>450 Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
         <div class="price-item"><span class="cs">Střih polodlouhých vlasů</span><span class="en">Medium lenght
-            haircut</span><span>30 minut</span><span>750 Kč</span></div>
+            haircut</span><span>30 minut</span><span>750 Kč</span>
+          <a href="https://buy.stripe.com/6oU00d1mv7Dc7NtdSvdQQ06" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+          </div>
         <div class="price-item"><span class="cs">Střih dlouhých vlasů</span><span class="en">Long haircut</span><span>45
-            minut</span><span>800 Kč</span></div>
-        <div class="price-item"><span class="cs">Kompletní balíček<br/>(střih vlasů, úprava vousů, maska na obličej, odstranění chloupků z uší a nosu voskem)</span><span class="en">Full package<br/>(haircut, beard trim, face mask, ear and nose hair removal with wax)</span><span>90
-            minut</span><span>1650 Kč</span></div>
+            minut</span><span>800 Kč</span>
+          <a href="https://buy.stripe.com/8x214he9hg9I7Nt29NdQQ05" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+          </div>
+        <div class="price-item"><span class="cs">Kompletní balíček<br />(střih vlasů, úprava vousů, maska na obličej,
+            odstranění chloupků z uší a nosu voskem)</span><span class="en">Full package<br />(haircut, beard trim, face
+            mask, ear and nose hair removal with wax)</span><span>90
+            minut</span><span>1650 Kč</span>
+          <a href="https://buy.stripe.com/eVqdR3c195v4ffV3dRdQQ03" class="voucher-link" target="_blank">
+            <span class="cs">Koupit voucher</span>
+            <span class="en">Buy voucher</span>
+          </a>
+          </div>
         <div class="price-item"><span class="cs">Holení vousů/holení vlasů</span><span class="en">Beard shaving/head
-            shaving</span><span>30 minut</span><span>550 Kč</span></div>
+            shaving</span><span>30 minut</span><span>550 Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
         <div class="price-item"><span class="cs">Dětský střih 6-9 let</span><span class="en">Kids haircut 6-9 years
-            old</span><span>30 minut</span><span>550 Kč</span></div>
+            old</span><span>30 minut</span><span>550 Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
         <div class="price-item"><span class="cs">Dětský střih 1-5 let</span><span class="en">Kids haircut 1-5 years
-            old</span><span>30 minut</span><span>450 Kč</span></div>
+            old</span><span>30 minut</span><span>450 Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
         <div class="price-item"><span class="cs">Barvení vousů</span><span class="en">Beard coloring</span><span>15
-            minut</span><span>400 Kč</span></div>
-        <div class="price-item"><span class="cs">Barvení vlasů<br/>(cena od, dle spotřeby materiálu)</span><span
-            class="en">Hair coloring<br/>(price from, depending on material consumption)</span><span>30
-            minut</span><span>700+ Kč</span></div>
+            minut</span><span>400 Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
+        <div class="price-item"><span class="cs">Barvení vlasů<br />(cena od, dle spotřeby materiálu)</span><span
+            class="en">Hair coloring<br />(price from, depending on material consumption)</span><span>30
+            minut</span><span>700+ Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
         <div class="price-item"><span class="cs">Vosk</span><span class="en">Wax</span><span>10 minut</span><span>100
-            Kč</span></div>
+            Kč</span>
+            <span class="cs"></span>
+            <span class="en"></span>
+          </div>
       </div>
       <!--      <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a> -->
     </section>
@@ -429,7 +496,7 @@
     <!-- Lightbox -->
     <div id="lightbox" class="lightbox" onclick="if(event.target.id==='lightbox'){closeLightbox()}">
       <span class="close" onclick="closeLightbox()">&times;</span>
-<!--      <div id="counter" class="counter"></div> -->
+      <!--      <div id="counter" class="counter"></div> -->
       <img class="lightbox-content" id="lightbox-img">
       <a class="prev" onclick="changeSlide(-1)" aria-label="Previous">&#10094;</a>
       <a class="next" onclick="changeSlide(1)" aria-label="Next">&#10095;</a>
