@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="cs">
 
 <head>
@@ -152,7 +152,8 @@
       text-decoration: none;
       font-weight: bold;
       font-size: 0.9em;
-      white-space: nowrap; /* Prevent wrapping the text */
+      white-space: nowrap;
+      /* Prevent wrapping the text */
     }
 
     .voucher-link:hover {
@@ -329,6 +330,23 @@
 
     let currentIndex = 0;
 
+    const descriptions = [
+      "Precizní střih, relaxační masážní mytí, úprava obočí a nežádoucích chloupků v uších. Zakončeno profesionálním stylingem a jemným parfémem. Za 30 minut maximální styl a sebevědomí.",
+      "Precizní střih doplněný relaxačním masážním mytím vlasů, úpravou a holením vousů s horkým a studeným zábalem ručníkem, úpravou obočí a chloupků v uších. Vše zakončeno profesionálním stylingem a jemným parfémem. Za 45 minut maximální styl a sebevědomí.",
+      "Úprava a holení vousů s horkým a studeným zábalem ručníkem, doplněná úpravou obočí a chloupků v uších. Zakončeno jemným parfémem pro perfektní dojem a osobní péči.",
+      "Střih strojkem, doplněný relaxačním masážním mytím vlasů a jemným stylingem. Za 30 minut svěží, upravený a sebevědomý vzhled.",
+      "Precizní úprava konečků polodlouhých vlasů s relaxačním masážním mytím a profesionálním stylingem. Za 30 minut svěží a upravený účes, který vydrží celý den.",
+      "Precizní úprava konečků dlouhých vlasů s relaxačním masážním mytím a profesionálním stylingem. Za 45 minut svěží a upravený účes, který vydrží celý den.",
+      "Precizní střih a masážní mytí vlasů, doplněné úpravou a holením vousů s horkým zábalem, peelingovou maskou na obličej a vytrháním chloupků z nosu a uší voskem. Celé zakončeno profesionálním stylingem a jemným parfémem pro pocit svěžesti, čistoty a maximálního komfortu.",
+      "Precizní holení vousů nebo vlasů doplněné horkým a studeným zábalem, ošetřením pokožky a jemným parfémem, které zanechávají svěží, upravený a komfortní pocit.",
+      "Precizní střih pro děti s jemným mytím vlasů a lehkým stylingem, prováděný hravým a přátelským přístupem, který zajistí, že se dítě cítí pohodlně a bezpečně. Perfektní pro upravený účes bez stresu a s úsměvem na tváři.",
+      "Střih pro nejmenší děti prováděný hravým a přátelským přístupem, který zajistí pohodlí a bezpečí. Perfektní pro upravený účes bez stresu a s úsměvem.",
+      "Profesionální barvení vousů důrazem na rovnoměrný odstín a přirozený vzhled, který podtrhne osobní styl a sebevědomí.",
+      "Profesionální barvení vlasů s důrazem na rovnoměrný odstín a přirozený vzhled, který podtrhne osobní styl a sebevědomí. Cena od 700 Kč, konečná cena závisí na požadavku klienta.",
+      "Profesionální vytrhávání chloupků voskem z nosu a uší pro čistý, upravený a komfortní vzhled, prováděné profesionálně a s maximální péčí o pokožku."
+    ];
+
+
     function openLightbox(index) {
       currentIndex = index;
       document.getElementById("lightbox").style.display = "flex";
@@ -409,33 +427,33 @@
             <span class="en">Buy voucher</span>
           </a>
 
-          </div>
+        </div>
         <div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard trim</span><span>30
             minut</span><span>550 Kč</span>
           <a href="https://buy.stripe.com/9B6eV79T15v41p5cOrdQQ04" class="voucher-link" target="_blank">
             <span class="cs">Koupit voucher</span>
             <span class="en">Buy voucher</span>
           </a>
-          </div>
+        </div>
         <div class="price-item"><span class="cs">Střih vlasů strojkem</span><span class="en">Buzz cut</span><span>30
             minut</span><span>450 Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Střih polodlouhých vlasů</span><span class="en">Medium lenght
             haircut</span><span>30 minut</span><span>750 Kč</span>
           <a href="https://buy.stripe.com/6oU00d1mv7Dc7NtdSvdQQ06" class="voucher-link" target="_blank">
             <span class="cs">Koupit voucher</span>
             <span class="en">Buy voucher</span>
           </a>
-          </div>
+        </div>
         <div class="price-item"><span class="cs">Střih dlouhých vlasů</span><span class="en">Long haircut</span><span>45
             minut</span><span>800 Kč</span>
           <a href="https://buy.stripe.com/8x214he9hg9I7Nt29NdQQ05" class="voucher-link" target="_blank">
             <span class="cs">Koupit voucher</span>
             <span class="en">Buy voucher</span>
           </a>
-          </div>
+        </div>
         <div class="price-item"><span class="cs">Kompletní balíček<br />(střih vlasů, úprava vousů, maska na obličej,
             odstranění chloupků z uší a nosu voskem)</span><span class="en">Full package<br />(haircut, beard trim, face
             mask, ear and nose hair removal with wax)</span><span>90
@@ -444,38 +462,38 @@
             <span class="cs">Koupit voucher</span>
             <span class="en">Buy voucher</span>
           </a>
-          </div>
+        </div>
         <div class="price-item"><span class="cs">Holení vousů/holení vlasů</span><span class="en">Beard shaving/head
             shaving</span><span>30 minut</span><span>550 Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Dětský střih 6-9 let</span><span class="en">Kids haircut 6-9 years
             old</span><span>30 minut</span><span>550 Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Dětský střih 1-5 let</span><span class="en">Kids haircut 1-5 years
             old</span><span>30 minut</span><span>450 Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Barvení vousů</span><span class="en">Beard coloring</span><span>15
             minut</span><span>400 Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Barvení vlasů<br />(cena od, dle spotřeby materiálu)</span><span
             class="en">Hair coloring<br />(price from, depending on material consumption)</span><span>30
             minut</span><span>700+ Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
         <div class="price-item"><span class="cs">Vosk</span><span class="en">Wax</span><span>10 minut</span><span>100
             Kč</span>
-            <span class="cs"></span>
-            <span class="en"></span>
-          </div>
+          <span class="cs"></span>
+          <span class="en"></span>
+        </div>
       </div>
       <!--      <a class="button" href="https://fika-barber.snippet.myfox.cz/">📅 Rezervace / Book Now</a> -->
     </section>
