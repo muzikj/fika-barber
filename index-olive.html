@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6M0YTYN8HV"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6M0YTYN8HV');
+</script>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Fika Barber</title>
+  <style>
+    :root {
+      --accent-color: #556B2F;   /* dark olive */
+      --accent-hover: #6B8E23;  /* olive drab */
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #1e1e1e;
+      color: #f2f2f2;
+      background-image: url('https://www.transparenttextures.com/patterns/wood-pattern.png'); 
+      /* background-image: url('https://images.unsplash.com/photo-1609782071319-e469a6c1b77a?ixlib=rb-4.0.3&auto=format&fit=crop&w=1400&q=80'); */
+      background-repeat: repeat;
+      background-size: cover;
+    }
+
+    header {
+      background-color: rgba(0, 0, 0, 0.85);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-bottom: 2px solid var(--accent-color);
+    }
+
+    #logo {
+      max-width: 120px;
+      height: auto;
+      margin-bottom: 1rem;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+      letter-spacing: 2px;
+    }
+
+    nav {
+      margin-top: 1rem;
+    }
+
+    nav a {
+      color: var(--accent-color);
+      text-decoration: none;
+      margin: 0 1rem;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+      color: var(--accent-hover);
+    }
+
+    .lang-switch {
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+
+    .lang-switch button {
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      margin: 0 0.3rem;
+      font-weight: bold;
+    }
+
+    .lang-switch button:hover {
+      color: var(--accent-color);
+    }
+
+    main {
+      padding: 2rem 1rem;
+      max-width: 900px;
+      margin: auto;
+      background-color: rgba(30, 30, 30, 0.9);
+      border-radius: 10px;
+    }
+
+    section {
+      margin-bottom: 2.5rem;
+    }
+
+    h2 {
+      color: var(--accent-color);
+      margin-bottom: 0.5rem;
+    }
+
+    .owner-photo {
+      width: 180px;
+      height: 180px;
+      background-color: #444;
+      border: 3px solid var(--accent-color);
+      border-radius: 100px;
+      margin: 1rem 0;
+      background-image: url('terka.jpg');
+      background-size: cover;
+      background-position: center;
+    }
+
+    .price-list {
+      margin-top: 1rem;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #555;
+      padding: 0.5rem 0;
+    }
+
+    a.button {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--accent-color);
+      color: #f2f2f2;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    a.button:hover {
+      background-color: var(--accent-hover);
+    }
+
+    .map-container {
+      margin-top: 1rem;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .gallery-grid img {
+      width: 100%;
+      border-radius: 8px;
+      border: 3px solid var(--accent-color);
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .gallery-grid img:hover {
+      transform: scale(1.03);
+    }
+
+/* Lightbox */
+.lightbox {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  padding-top: 60px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.9);
+}
+
+.lightbox-content {
+  margin: auto;
+  display: block;
+  max-width: 90%;
+  max-height: 80vh;
+  border: 4px solid var(--accent-color);
+  border-radius: 10px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--accent-color);
+}
+
+/* Šipky */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: #fff;
+  font-weight: bold;
+  font-size: 40px;
+  transition: 0.3s;
+  user-select: none;
+}
+
+.next { right: 20px; }
+.prev { left: 20px; }
+
+.prev:hover, .next:hover {
+  color: var(--accent-color);
+}
+
+
+    iframe {
+      width: 100%;
+      height: 300px;
+      border: none;
+      border-radius: 10px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #aaa;
+      background-color: rgba(0, 0, 0, 0.7);
+      border-top: 1px solid #555;
+    }
+
+    @media (max-width: 600px) {
+      nav a {
+        display: block;
+        margin: 0.5rem 0;
+      }
+
+      .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+  </style>
+
+  <script>
+    function switchLang(lang) {
+      const cs = document.querySelectorAll('.cs');
+      const en = document.querySelectorAll('.en');
+      cs.forEach(el => el.style.display = lang === 'cs' ? 'block' : 'none');
+      en.forEach(el => el.style.display = lang === 'en' ? 'block' : 'none');
+    }
+    window.onload = () => switchLang('cs');
+
+let currentIndex = 0;
+const images = document.querySelectorAll(".gallery-grid img");
+
+function openLightbox(index) {
+  currentIndex = index;
+  document.getElementById("lightbox").style.display = "block";
+  showImage();
+}
+
+function closeLightbox() {
+  document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(step) {
+  currentIndex += step;
+  if (currentIndex < 0) currentIndex = images.length - 1;
+  if (currentIndex >= images.length) currentIndex = 0;
+  showImage();
+}
+
+function showImage() {
+  const lightboxImg = document.getElementById("lightbox-img");
+  lightboxImg.src = images[currentIndex].src;
+}
+
+/* Podpora klávesnice */
+document.addEventListener("keydown", (e) => {
+  if (document.getElementById("lightbox").style.display === "block") {
+    if (e.key === "ArrowLeft") changeSlide(-1);
+    if (e.key === "ArrowRight") changeSlide(1);
+    if (e.key === "Escape") closeLightbox();
+  }
+});
+
+  </script>
+</head>
+<body>
+
+  <header>
+    <img id="logo" src="logo.png" alt="Fika Barber Logo" />
+    <h1>Fika Barber</h1>
+    <nav>
+      <a href="#about">O nás / About</a>
+      <a href="#services">Služby / Services</a>
+      <a href="#contact">Kontakt / Contact</a>
+      <a href="#gallery">Galerie / Gallery</a>
+    </nav>
+    <div class="lang-switch">
+      <button onclick="switchLang('cs')" aria-label="Zobrazit web česky">🇨🇿 Česky</button>
+      <button onclick="switchLang('en')" aria-label="Switch to English">🇬🇧 English</button>
+    </div>
+  </header>
+
+  <main>
+
+<section id="about">
+  <h2 class="cs">O nás</h2>
+  <h2 class="en">About Us</h2>
+  <div class="owner-photo"></div>
+  <p class="cs">
+    Fika Barber je víc než jen barber shop – je to klidné místo, kde se staráme o váš vzhled i pohodu. 
+    Majitelka a hlavní barberka má více než 12 let zkušeností v oboru. Díky svému empatickému přístupu 
+    vytváří přátelské prostředí, kde se každý cítí vítaný – bez ohledu na styl nebo životní příběh.
+  </p>
+  <p class="en">
+    Fika Barber is more than just a barbershop – it's a calm space where we care about your look and your comfort. 
+    The owner and lead barber is a woman with over 12 years of experience. Her empathetic approach and attention to 
+    detail create a warm, welcoming atmosphere for every client – no matter their style or story.
+  </p>
+</section>
+
+    <section id="services">
+      <h2 class="cs">Ceník</h2>
+      <h2 class="en">Price List</h2>
+      <div class="price-list">
+        <div class="price-item"><span class="cs">Klasický střih</span><span class="en">Classic Cut</span><span>600 Kč</span></div>
+        <div class="price-item"><span class="cs">Úprava vousů</span><span class="en">Beard Trim</span><span>350 Kč</span></div>
+        <div class="price-item"><span class="cs">Holení horkým ručníkem</span><span class="en">Hot Towel Shave</span><span>450 Kč</span></div>
+        <div class="price-item"><span class="cs">Kompletní balíček</span><span class="en">Full Package</span><span>950 Kč</span></div>
+      </div>
+      <a class="button" href="https://tereza-vlkova.snippet.myfox.cz/" target="_blank" rel="noopener noreferrer">📅 Rezervace / Book Now</a>
+    </section>
+
+<section id="gallery">
+  <h2 class="cs">Galerie</h2>
+  <h2 class="en">Gallery</h2>
+  <div class="gallery-grid">
+    <img src="photos/IMG_6879.jpeg" alt="Gallery Photo 1" loading="lazy" onclick="openLightbox(0)">
+    <img src="photos/IMG_7040.jpeg" alt="Gallery Photo 2" loading="lazy" onclick="openLightbox(1)">
+    <img src="photos/IMG_7050.jpeg" alt="Gallery Photo 3" loading="lazy" onclick="openLightbox(2)">
+    <img src="photos/IMG_7055.jpeg" alt="Gallery Photo 4" loading="lazy" onclick="openLightbox(3)">
+    <img src="photos/IMG_7060.jpeg" alt="Gallery Photo 5" loading="lazy" onclick="openLightbox(4)">
+    <img src="photos/IMG_7062.jpeg" alt="Gallery Photo 6" loading="lazy" onclick="openLightbox(5)">
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div id="lightbox" class="lightbox">
+  <span class="close" onclick="closeLightbox()">&times;</span>
+  <img class="lightbox-content" id="lightbox-img">
+  <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+  <a class="next" onclick="changeSlide(1)">&#10095;</a>
+</div>
+
+    <section id="contact">
+      <h2 class="cs">Kontakt</h2>
+      <h2 class="en">Contact</h2>
+      <p><strong>📍 <span class="cs">Adresa:</span><span class="en">Address:</span></strong> Na Folimance 7, Praha 2, 12000</p>
+      <p><strong>📞 Telefon:</strong> +420 737 862 982</p>
+      <p><strong>📧 Email:</strong> <a href="mailto:vlkova.tera@gmail.com" style="color:var(--accent-color);">vlkova.tera@gmail.com</a></p>
+      <p><strong>🌐 Web:</strong> <a href="http://www.fika-barber.cz" style="color:var(--accent-color);">www.fika-barber.cz</a></p>
+
+      <div class="map-container">
+        <iframe 
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2560.370224672576!2d14.4334023!3d50.0673078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x470b9498469940ef%3A0xd6dcf15ae24a063a!2sNa%20Folimance%207%2C%20120%2000%20Praha%202-Vinohrady!5e0!3m2!1scs!2scz!4v1715590000000" 
+          allowfullscreen="" 
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Fika Barber — Praha, Česká republika
+  </footer>
+
+</body>
+</html>
