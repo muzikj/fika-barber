@@ -124,14 +124,14 @@
       margin-top: 1rem;
     }
 
-    .price-item {
-      display: grid;
-      grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
-      border-bottom: 1px solid #555;
-      padding: 0.5rem 0;
-      align-items: center;
-    }
-
+.price-item {
+  display: grid;
+  grid-template-columns: 2fr 2fr 1fr 1fr 1fr;
+  border-bottom: 1px solid #555;
+  padding: 0.5rem 0;
+  align-items: center;
+  row-gap: 0.5rem; /* add some space for the description */
+}
     .price-item> :last-child {
       justify-self: end;
     }
@@ -296,13 +296,13 @@
       color: var(--accent-color);
     }
 
-    .description {
-      display: none;
-      margin-top: 0.5rem;
-      font-size: 0.9rem;
-      color: #aaa;
-    }
-
+.description {
+  display: none; /* initially hidden */
+  grid-column: 1 / -1; /* span all columns */
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
     .dropdown {
       cursor: pointer;
       color: var(--accent-color);
