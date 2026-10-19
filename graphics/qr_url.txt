@@ -1,3 +1,4 @@
 https://fika-barber.cz/booking/index.html?utm_source=qr_shop_window
 
 http://fika-barber.webtest.albertov.cz/booking/index.html?utm_source=qr_shop_window
+http://fika-barber.webtest.albertov.cz/booking/index.html?utm_source=qr_flyer_001
